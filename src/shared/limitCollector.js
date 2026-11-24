@@ -43,6 +43,7 @@ const ollamaLimits = require('./ollamaLimits');
 const { ollamaSessionCookie, fetchOllamaLimits } = ollamaLimits;
 const kimiLimits = require('./kimiLimits');
 const { kimiToken, kimiWebToken, fetchKimiLimits } = kimiLimits;
+const nineRouterLimits = require('./nineRouterLimits');
 const {
   grokCredential,
   readAuthJson,
@@ -53,7 +54,7 @@ const {
   fetchGrokLimits
 } = grokLimits;
 
-const LIMIT_PROVIDER_IDS = ['claude', 'codex', 'cursor', 'antigravity', 'opencode', 'openrouter', 'deepseek', 'minimax', 'mimo', 'grok', 'copilot', 'kiro', 'zai', 'volcengine', 'qoder', 'zaiteam', 'kimi', 'ollama'];
+const LIMIT_PROVIDER_IDS = ['claude', 'codex', 'cursor', 'antigravity', 'opencode', 'openrouter', 'deepseek', 'minimax', 'mimo', 'grok', 'copilot', 'kiro', 'zai', 'volcengine', 'qoder', 'zaiteam', 'kimi', 'ollama', 'ninerouter'];
 const DEFAULT_PROVIDER_PHYSICAL_BOUND_MS = 120_000;
 const PROVIDER_CLEANUP_GRACE_MS = 5_000;
 const LIMIT_REFRESH_VALUES = new Set([60_000, 120_000, 300_000, 900_000, 1_800_000]);
@@ -2597,6 +2598,7 @@ function providerFetchers(deps = {}) {
     qoder: (providerOptions, probeDeps) => qoderLimits.fetchQoderLimits(providerOptions, probeDeps),
     ollama: (providerOptions, probeDeps) => ollamaLimits.fetchOllamaLimits(providerOptions, probeDeps),
     kimi: (providerOptions, probeDeps) => kimiLimits.fetchKimiLimits(providerOptions, probeDeps),
+    ninerouter: (providerOptions, probeDeps) => nineRouterLimits.fetchNineRouterLimits(providerOptions, probeDeps),
     ...(deps.providerFetchers || {})
   };
 }

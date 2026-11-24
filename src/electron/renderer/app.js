@@ -84,7 +84,8 @@ const LIMIT_PROVIDERS = [
   { id: 'volcengine', label: 'Volcengine' },
   { id: 'qoder', label: 'Qoder' },
   { id: 'kimi', label: 'Kimi' },
-  { id: 'ollama', label: 'Ollama' }
+  { id: 'ollama', label: 'Ollama' },
+  { id: 'ninerouter', label: '9Router' }
 ];
 const TRAY_ICON_VARIANTS = [
   { id: 'claude-brand', label: 'Claude', after: 'claude' },
